@@ -57,7 +57,7 @@ namespace GarageOO
             // 2 mécaniciens qui peuvent s'occuper des voitures nbsiege > 2
             // 1 mécanicien qui peut s'occuper des voitures ayant nbsiege <=2
 
-            IMecano mecano = new Mecanicien("Roberto");
+            IMecano mecano = new Mecanicien("Roberto Lopez");
             mecano.ExpertisEnNbSiege = 4;
 
             //Save MEcano dans la DB
