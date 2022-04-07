@@ -64,7 +64,7 @@ namespace GarageOO
             IMecanicienRepository repoMecano = new MecanicienRepository(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TFGarage;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             if(repoMecano.Add(mecano as Mecanicien))
             {
-                Console.WriteLine("Ok Roberto est dans la place");
+                Console.WriteLine("Ok Roberto est dans la place. Ajout OK");
             }
 
             Dictionary<EAction, double> MesTarifs = GenerateTarifs();
