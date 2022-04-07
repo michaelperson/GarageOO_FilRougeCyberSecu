@@ -1,0 +1,73 @@
+﻿<Window x:Class="GarageOO.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GarageOO.UI"
+        mc:Ignorable="d"
+        Title="TechnoGarage" Height="450" Width="800" Icon="/TechnoGarage.jpg" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="87"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Image Source="/TechnoGarage.jpg"></Image>
+        <StackPanel  Grid.Row="0" Grid.Column="1" Background="#f7af4b">
+            <Label Content="Best Garage Ever"
+              
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               FontFamily="Arial"
+               FontSize="45"
+               Foreground="#92062a"/>
+        </StackPanel>
+
+        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" x:Name="GridMain" >
+            <Grid.Background>
+                <LinearGradientBrush>
+
+                    <GradientStop Color="Pink" Offset="1"/>
+                    <GradientStop Color="Cyan" Offset="-1"/>
+
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="320"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="2">
+                <Label Content="Menu" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold" />
+                <Button Content="Entretien" Margin="0,0,0,10" HorizontalAlignment="Center"   VerticalAlignment="Top" Height="50" Width="200" Background="HotPink" FontWeight="Black" />
+                <Button Content="Ajout d'un voiture" Margin="0,0,0,10" HorizontalAlignment="Center"   VerticalAlignment="Center" Height="50" Width="200"  Background="DeepPink" FontWeight="Black"/>
+                <Button Content="Supprimer une voiture" Margin="0,0,0,10" HorizontalAlignment="Center"   VerticalAlignment="Bottom" Height="50" Width="200"  Background="Purple" FontWeight="Black"/>
+
+            </StackPanel>
+            <StackPanel Grid.Column="1" x:Name="StackContainer" >
+                <Label Content="Les voitures" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold" />
+                <ListBox Margin="0" Height="{Binding ElementName=GridMain, Path=Height}"  >
+                    <ListBoxItem>
+                        <TextBlock Text="Alfa Romeo 157 - En Attente de prise en charge"></TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock Text="Lada Mauve - Prise en charge à 15:35"></TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock Text="BMWV 1-EDE-000 - Entretien terminé par Marco à 14:30"></TextBlock>
+                    </ListBoxItem>
+
+                </ListBox>
+            </StackPanel>
+
+
+        </Grid>
+
+        <Label Content="Designed by CyberSecurity TF 2022" FontWeight="Bold" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="1" Margin="447,329,0,0" Grid.RowSpan="2" Width="209"/>
+    </Grid>
+</Window>
