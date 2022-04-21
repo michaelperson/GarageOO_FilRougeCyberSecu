@@ -1,0 +1,62 @@
+﻿@model IEnumerable<FirstAspMvc.Models.VoitureViewModel>
+
+@{
+    ViewData["Title"] = "Mes voitures";
+}
+
+  <section id="content">
+      <div class="main">
+        <div class="container_12">          
+          <div class="container-bot">
+            <div class="container-top">
+              <div class="container">
+                <div class="wrapper">
+                  <article class="grid_4">
+                    <div class="indent-left">
+                      <h3>Actions</h3>
+                      <a asp-action="Create">Create New</a>
+                      </div>
+                  </article>
+                  <article class="grid_8">
+                    <div class="indent-left2">
+                      <h3 class="p1">Mes voitures</h3>
+                      <table class="price-list">
+                        <thead>
+                          <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CapaciteCoffre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NbSiege)
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         @foreach (var item in Model) 
+                         {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CapaciteCoffre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NbSiege)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                        </td>
+                                    </tr>
+                         }
+                        </tbody>
+                      </table>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+

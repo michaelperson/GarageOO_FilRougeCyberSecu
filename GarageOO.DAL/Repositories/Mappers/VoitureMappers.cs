@@ -15,6 +15,7 @@ namespace GarageOO.DAL.Repositories.Mappers
             Voiture voiture= new Voiture(Entity.Plaque, Entity.Marque, Entity.Couleur, Entity.NbRoues,
                      Entity.NbPortes, Entity.NbSiege);
             voiture.Id=Entity.Id;
+            voiture.CapaciteCoffre = Entity.CapaciteCoffre;
             return voiture;
         }
 

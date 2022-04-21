@@ -41,6 +41,7 @@ namespace GarageOO.Models.Concretes
                 else _nbroues = value;
             }
         }
+ 
 
         /// <summary>
         /// Constructeur permettant d'intialiser certains champs
@@ -58,7 +59,7 @@ namespace GarageOO.Models.Concretes
         {
             this.NbPortes = nbPortes;
             this.NbSiege = NbSiege;
-            this.CapaciteCoffre = CapaciteCoffre;
+            this.CapaciteCoffre = CapaciteCoffre;//Erreur de débutant où j'affecte la propriété à la propriété car pas de paramètre correspondant
         }
 
         /// <summary>

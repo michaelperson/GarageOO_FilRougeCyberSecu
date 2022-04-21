@@ -1,0 +1,76 @@
+﻿@model FirstAspMvc.Models.Forms.VoitureCreateViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+ <section id="content">
+      <div class="main">
+        <div class="container_12">          
+          <div class="container-bot">
+            <div class="container-top">
+              <div class="container">
+                <div class="wrapper">
+<h1>Create</h1>
+
+<h4>VoitureCreateViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>            
+            <div class="form-group">
+                <label asp-for="Plaque" class="control-label"></label>
+                <input asp-for="Plaque" class="form-control" />
+                <span asp-validation-for="Plaque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Marque" class="control-label"></label>
+                <input asp-for="Marque" class="form-control" />
+                <span asp-validation-for="Marque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Couleur" class="control-label"></label>
+                <input asp-for="Couleur" class="form-control" />
+                <span asp-validation-for="Couleur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NbRoues" class="control-label"></label>
+                <input asp-for="NbRoues" class="form-control" />
+                <span asp-validation-for="NbRoues" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NbPortes" class="control-label"></label>
+                <input asp-for="NbPortes" class="form-control" />
+                <span asp-validation-for="NbPortes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CapaciteCoffre" class="control-label"></label>
+                <input asp-for="CapaciteCoffre" class="form-control" />
+                <span asp-validation-for="CapaciteCoffre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NbSiege" class="control-label"></label>
+                <input asp-for="NbSiege" class="form-control" />
+                <span asp-validation-for="NbSiege" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+ </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
