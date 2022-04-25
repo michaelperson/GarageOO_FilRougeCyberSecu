@@ -1,3 +1,5 @@
+using GarageOO.DAL.Repositories;
+using GarageOO.DAL.Repositories.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +25,12 @@ namespace FirstAspMvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
+            string cnstr = Configuration.GetConnectionString("Dev");
+            services.AddScoped<IVoitureRepository, VoitureRepository>
+                (m=> new VoitureRepository(cnstr));
+            services.AddScoped<IMecanicienRepository, MecanicienRepository>
+                (m => new MecanicienRepository(cnstr));
             services.AddControllersWithViews();
         }
 

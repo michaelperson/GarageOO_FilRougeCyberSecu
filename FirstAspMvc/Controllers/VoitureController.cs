@@ -6,16 +6,23 @@ using System.Collections.Generic;
 using FirstAspMvc.Infra.Mapper;
 using System.Linq;
 using FirstAspMvc.Models;
+using GarageOO.DAL.Repositories.Interface;
 
 namespace FirstAspMvc.Controllers
 {
     public class VoitureController : Controller
     {
+        private readonly IVoitureRepository _repo;
+        public VoitureController(IVoitureRepository vr)
+        {
+            _repo = vr;
+        }
+
+
         public IActionResult Index()
         {
-            VoitureRepository repo = new VoitureRepository(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TFGarage;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            //demander la liste des voitures de la db
-            List<VoitureViewModel> MesVoitures = repo.GetAll().Select(m=>m.ToViewModel()).ToList();
+             
+            List<VoitureViewModel> MesVoitures = _repo.GetAll().Select(m=>m.ToViewModel()).ToList();
 
             if(TempData.ContainsKey("SuccessMessage"))
             {
@@ -38,9 +45,7 @@ namespace FirstAspMvc.Controllers
             //tester la validité de mon model
            if(ModelState.IsValid)
             {
-                //go to the database
-                VoitureRepository repo = new VoitureRepository(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TFGarage;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-                if(repo.Add(model.ToBusiness()))
+                 if(_repo.Add(model.ToBusiness()))
                 {
                     return RedirectToAction("Index");
                 }
@@ -59,8 +64,7 @@ namespace FirstAspMvc.Controllers
         public IActionResult Edit(int id)
         {
             /*Récupération via le repo de la bagnole*/
-            VoitureRepository repo = new VoitureRepository(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TFGarage;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            VoitureCreateViewModel vcvm = repo.GetOne(id).ToCreateViewModel();
+              VoitureCreateViewModel vcvm = _repo.GetOne(id).ToCreateViewModel();
 
             //ENVOYER LE MODEL!!!!!!!
           return View(vcvm);
@@ -75,14 +79,12 @@ namespace FirstAspMvc.Controllers
 
             if (!ModelState.IsValid) return View();
 
-            //MAJ
-            VoitureRepository repo = new VoitureRepository(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TFGarage;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-
+            
             //Vérifier si l'id est un id que je connais dans la db
-            if(repo.GetOne(id)!=null)
+            if(_repo.GetOne(id)!=null)
             {
 
-                if(repo.Update(toInsert.ToBusiness()))
+                if(_repo.Update(toInsert.ToBusiness()))
                 {
                     TempData["SuccessMessage"] = "Voiture mise à jour";
                     return RedirectToAction("Index");
