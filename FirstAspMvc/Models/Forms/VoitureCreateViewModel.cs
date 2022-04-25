@@ -14,7 +14,7 @@ namespace FirstAspMvc.Models.Forms
         
         [Required(ErrorMessage ="La plaque est requise")]
         [MaxLength(9)]
-        [RegularExpression("[a-z A-Z 1-9]-[a-z A-Z]{3}-[a-z A-Z 1-9]{3}",ErrorMessage ="La plaque doit respecter le format eurpéen")] //A vérifier
+        [RegularExpression("[a-z A-Z 1-9]-[a-z A-Z]{3}-[a-z A-Z 0-9]{3}",ErrorMessage ="La plaque doit respecter le format eurpéen")] //A vérifier
         /// <summary>
         /// Propriété permettant d'atteindre la valeur de la plaque       
         /// </summary>

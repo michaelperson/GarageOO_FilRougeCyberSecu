@@ -13,6 +13,7 @@ namespace FirstAspMvc.Infra.Mapper
         {
             Voiture v= new Voiture(model.Plaque, model.Marque, model.Couleur, model.NbRoues, model.NbPortes, model.NbSiege);
             v.CapaciteCoffre = model.CapaciteCoffre;
+            v.Id = model.Id;
             return v;
         }
 
@@ -24,11 +25,28 @@ namespace FirstAspMvc.Infra.Mapper
                 Marque = model.Marque,
                 Couleur = model.Couleur,
                 NbRoues = model.NbRoues,
-               // NbPortes = model.NbPortes,
+                 
                 NbSiege = model.NbSiege,
                 CapaciteCoffre = model.CapaciteCoffre,
                  Id= model.Id
                 
+
+            };
+        }
+
+        public static VoitureCreateViewModel ToCreateViewModel(this Voiture model)
+        {
+            return new VoitureCreateViewModel()
+            {
+                Plaque = model.Plaque,
+                Marque = model.Marque,
+                Couleur = model.Couleur,
+                NbRoues = model.NbRoues,
+                NbPortes = model.NbPortes,
+                NbSiege = model.NbSiege,
+                CapaciteCoffre = model.CapaciteCoffre,
+                Id = model.Id
+
 
             };
         }

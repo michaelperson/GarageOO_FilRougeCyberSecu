@@ -20,7 +20,11 @@
                   <article class="grid_8">
                     <div class="indent-left2">
                       <h3 class="p1">Mes voitures</h3>
-                      <table class="price-list">
+                      @if(ViewBag.Success!=null)
+                         {
+                           @:<div class="alert alert-info">@ViewBag.Success</div>
+                         }
+                                    <table class="price-list">
                         <thead>
                           <tr>
                             <th>
@@ -42,9 +46,9 @@
                                             @Html.DisplayFor(modelItem => item.NbSiege)
                                         </td>
                                         <td>
-                                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                            @Html.ActionLink("Edit", "Edit", new { id= item.Id }) |
+                                            @Html.ActionLink("Details", "Details", new { id= item.Id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id= item.Id })
                                         </td>
                                     </tr>
                          }
